@@ -70,7 +70,7 @@ app.put("/review/:isbn", (req, res) => {
 });
 
 // Delete review
-aapp.delete("/review/:isbn", (req, res) => {
+app.delete("/review/:isbn", (req, res) => {
   delete books[req.params.isbn].reviews["user"];
   res.json({ message: `Review for ISBN ${req.params.isbn} deleted` });
 });
