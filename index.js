@@ -6,9 +6,17 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-let books = {
+const books = {
   "1": { title: "Book1", author: "Author1", reviews: {} },
-  "2": { title: "Book2", author: "Author2", reviews: {} }
+  "2": { title: "Book2", author: "Author2", reviews: {} },
+  "3": { title: "Book3", author: "Author3", reviews: {} },
+  "4": { title: "Book4", author: "Author4", reviews: {} },
+  "5": { title: "Book5", author: "Author5", reviews: {} },
+  "6": { title: "Book6", author: "Author6", reviews: {} },
+  "7": { title: "Book7", author: "Author7", reviews: {} },
+  "8": { title: "Book8", author: "Author8", reviews: {} },
+  "9": { title: "Book9", author: "Author9", reviews: {} },
+  "10": { title: "Book10", author: "Author10", reviews: {} }
 };
 
 let users = [];
@@ -52,19 +60,19 @@ app.post("/register", (req, res) => {
 
 // Login
 app.post("/login", (req, res) => {
-  res.json({ message: "User successfully logged in" });
+  res.json({ message: "Login successful" });
 });
 
 // Add review
-app.put("/customer/review/:isbn", (req, res) => {
+app.put("/review/:isbn", (req, res) => {
   books[req.params.isbn].reviews["user"] = req.body.review;
-  res.json({ message: "Review added" });
+  res.json({ message: "Review added successfully" });
 });
 
 // Delete review
-app.delete("/customer/review/:isbn", (req, res) => {
+aapp.delete("/review/:isbn", (req, res) => {
   delete books[req.params.isbn].reviews["user"];
-  res.json({ message: "Review deleted" });
+  res.json({ message: `Review for ISBN ${req.params.isbn} deleted` });
 });
 
 app.listen(3000, () => console.log("Server running"));
