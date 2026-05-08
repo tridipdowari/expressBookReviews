@@ -1,30 +1,27 @@
 const axios = require('axios');
 
-// Task 10: Get all books
+// Get all books
 axios.get('http://localhost:3000/')
-.then(response => {
-    console.log("All Books:");
+.then((response) => {
     console.log(response.data);
 })
-.catch(error => {
+.catch((error) => {
     console.log(error);
 });
 
-// Task 11: Get book by ISBN using Promises
+// Get book by ISBN
 axios.get('http://localhost:3000/isbn/1')
-.then(response => {
-    console.log("Book by ISBN:");
+.then((response) => {
     console.log(response.data);
 })
-.catch(error => {
+.catch((error) => {
     console.log(error);
 });
 
-// Task 12: Get books by Author using async/await
+// Get books by Author
 async function getByAuthor() {
     try {
         const response = await axios.get('http://localhost:3000/author/Author1');
-        console.log("Books by Author:");
         console.log(response.data);
     } catch (error) {
         console.log(error);
@@ -33,11 +30,10 @@ async function getByAuthor() {
 
 getByAuthor();
 
-// Task 13: Get books by Title using async/await
+// Get books by Title
 async function getByTitle() {
     try {
         const response = await axios.get('http://localhost:3000/title/Book1');
-        console.log("Books by Title:");
         console.log(response.data);
     } catch (error) {
         console.log(error);
